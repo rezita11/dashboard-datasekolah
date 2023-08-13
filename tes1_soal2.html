@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Data Sekolah</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.css">
+
+    <!-- style css -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+    
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+    
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    
+        .chart-container {
+            margin-bottom: 30px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Dashboard - Data Sekolah</h1>
+        <div class="chart-container">
+            <canvas id="studentChart" width="400" height="200"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="teacherChart" width="400" height="200"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script>
+        // Data Dummy
+        const studentData = {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+                label: 'Students Enrolled',
+                data: [120, 150, 180, 160, 200, 190],
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const teacherData = {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+                label: 'Teachers Employed',
+                data: [15, 18, 20, 22, 25, 24],
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        // Render Charts
+        const studentChart = new Chart(document.getElementById('studentChart'), {
+            type: 'line',
+            data: studentData
+        });
+
+        const teacherChart = new Chart(document.getElementById('teacherChart'), {
+            type: 'bar',
+            data: teacherData
+        });
+    </script>
+</body>
+</html>
